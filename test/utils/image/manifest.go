@@ -22,10 +22,11 @@ import (
 )
 
 const (
-	e2eRegistry     = "gcr.io/kubernetes-e2e-test-images"
-	gcRegistry      = "k8s.gcr.io"
-	PrivateRegistry = "gcr.io/k8s-authenticated-test"
-	sampleRegistry  = "gcr.io/google-samples"
+	dockerHubRegistry = "docker.io"
+	e2eRegistry       = "gcr.io/kubernetes-e2e-test-images"
+	gcRegistry        = "k8s.gcr.io"
+	PrivateRegistry   = "gcr.io/k8s-authenticated-test"
+	sampleRegistry    = "gcr.io/google-samples"
 )
 
 type ImageConfig struct {
@@ -77,8 +78,8 @@ var (
 	Net                      = ImageConfig{e2eRegistry, "net", "1.0", true}
 	Netexec                  = ImageConfig{e2eRegistry, "netexec", "1.0", true}
 	Nettest                  = ImageConfig{e2eRegistry, "nettest", "1.0", true}
-	NginxSlim                = ImageConfig{gcRegistry, "nginx-slim", "0.20", true}
-	NginxSlimNew             = ImageConfig{gcRegistry, "nginx-slim", "0.21", true}
+	NginxSlim                = ImageConfig{dockerHubRegistry, "nginx", "1.14-alpine", false}
+	NginxSlimNew             = ImageConfig{dockerHubRegistry, "nginx", "1.15-alpine", false}
 	Nonewprivs               = ImageConfig{e2eRegistry, "nonewprivs", "1.0", true}
 	NoSnatTest               = ImageConfig{e2eRegistry, "no-snat-test", "1.0", true}
 	NoSnatTestProxy          = ImageConfig{e2eRegistry, "no-snat-test-proxy", "1.0", true}
