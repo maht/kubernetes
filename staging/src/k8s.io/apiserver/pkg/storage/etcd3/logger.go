@@ -20,7 +20,7 @@ import (
 	"fmt"
 
 	"github.com/coreos/etcd/clientv3"
-	"k8s.io/klog"
+	"k8s.io/klog/v2"
 )
 
 func init() {
@@ -80,5 +80,5 @@ func (klogWrapper) Fatalf(format string, args ...interface{}) {
 }
 
 func (klogWrapper) V(l int) bool {
-	return bool(klog.V(klog.Level(l)))
+	return klog.V(klog.Level(l)).Enabled()
 }
